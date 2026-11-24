@@ -13,6 +13,9 @@ const ENTRY =
 if (ENTRY.length > 180) {
   throw new Error(`entry is ${ENTRY.length} chars, over the 180-char limit`);
 }
+if (ENTRY.trim().length === 0) {
+  throw new Error("entry must not be only whitespace");
+}
 if (ENTRY.includes("\n") || ENTRY.includes("\r")) {
   throw new Error("entry must be exactly one line");
 }
